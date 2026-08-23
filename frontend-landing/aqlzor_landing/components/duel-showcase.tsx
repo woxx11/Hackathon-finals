@@ -56,7 +56,7 @@ export function DuelShowcase() {
             </div>
 
             <a
-              href="https://app-aqlzor.vercel.app"
+              href="https://hackathon-finals-41v6.vercel.app/"
               className="mt-8 group inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-secondary to-primary px-7 py-4 text-sm font-extrabold text-white shadow-lg shadow-secondary/25 transition-all hover:scale-[1.02]"
             >
               Duel boshlash
