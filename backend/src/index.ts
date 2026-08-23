@@ -7,7 +7,7 @@ import { GoogleGenAI } from '@google/genai';
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_ORIGIN || true }));
 app.use(express.json());
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || 'dummy' });
@@ -21,6 +21,9 @@ const sendError = (res: express.Response, message: string, status = 400, code = 
   res.status(status).json({ success: false, error: { message, code } });
 };
 
+// --- HEALTH ---
+app.get('/health', (_req, res) => sendSuccess(res, { service: 'aqlzor-api', status: 'ok', version: 'mvp-2' }));
+
 // --- USERS ---
 app.post('/api/users/register', (req, res) => {
   const { name, schoolId, classId } = req.body;
@@ -31,6 +34,15 @@ app.post('/api/users/register', (req, res) => {
   const newUser = { id, name, schoolId, classId, xp: 0, level: 1, streak: 0, badges: [], stats: {} };
   users.set(id, newUser);
   sendSuccess(res, newUser, 201);
+});
+
+app.post('/api/auth/login', (req, res) => {
+  const { name, schoolId, classId } = req.body;
+  if (!name || !schoolId || !classId) return sendError(res, 'Name, schoolId and classId are required', 400, 'MISSING_FIELDS');
+  const normalized = String(name).trim().toLowerCase();
+  const user = Array.from(users.values()).find((candidate) => candidate.name.toLowerCase() === normalized && candidate.schoolId === schoolId && candidate.classId === classId);
+  if (!user) return sendError(res, 'Profile not found. Register first.', 404, 'INVALID_CREDENTIALS');
+  sendSuccess(res, { user, token: `mvp-${user.id}` });
 });
 
 app.get('/api/users', (req, res) => {
@@ -218,6 +230,13 @@ Return valid JSON matching this schema: [{ "question": "string", "options": ["st
   }
 
   sendSuccess(res, { subject, questions: fallback });
+});
+
+// --- DOWNLOADS ---
+app.get('/downloads/aqlzor.apk', (_req, res) => {
+  const apkUrl = process.env.APK_URL;
+  if (!apkUrl) return sendError(res, 'APK is not configured yet. Set APK_URL in Render.', 503, 'APK_NOT_CONFIGURED');
+  return res.redirect(302, apkUrl);
 });
 
 // --- GLOBAL ERROR HANDLING ---

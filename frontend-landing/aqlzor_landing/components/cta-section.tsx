@@ -62,7 +62,7 @@ export function CtaSection() {
               className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <a
-                href="https://app-aqlzor.vercel.app"
+                href="https://hackathon-finals-41v6.vercel.app/"
                 className="group inline-flex items-center gap-2 rounded-2xl bg-primary px-8 py-4 text-base font-bold text-background transition-all hover:shadow-xl hover:shadow-primary/25 hover:scale-[1.02] hover:gap-3 active:scale-[0.98]"
               >
                 Bepul boshlash

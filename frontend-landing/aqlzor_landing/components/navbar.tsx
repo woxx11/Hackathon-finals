@@ -49,7 +49,7 @@ export function Navbar() {
           {/* Action button */}
           <div className="flex items-center gap-3">
             <a
-              href="https://app-aqlzor.vercel.app"
+              href="https://hackathon-finals-41v6.vercel.app/"
               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-hover px-5 py-2.5 text-sm font-extrabold text-white shadow-md shadow-primary/20 transition-all hover:shadow-lg hover:shadow-primary/30 hover:scale-[1.02] active:scale-[0.98]"
             >
               Boshlash
