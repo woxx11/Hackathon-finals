@@ -1,26 +1,128 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import "tw-animate-css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* base */
+  --color-ink-950: #08080a;
+  --color-ink-900: #0d0d11;
+  --color-ink-850: #131318;
+  --color-ink-800: #191920;
+  --color-ink-700: #24242c;
+  --color-ink-600: #33333d;
+  --color-line: rgba(246, 244, 235, 0.08);
+  --color-line-strong: rgba(246, 244, 235, 0.16);
+
+  /* text */
+  --color-text-primary: #f2f0e8;
+  --color-text-secondary: #a4a29a;
+  --color-text-muted: #67655e;
+
+  /* cream / gold accent */
+  --color-cream-100: #f8f5ea;
+  --color-cream-300: #e7e1c9;
+  --color-gold-400: #d8c687;
+  --color-gold-500: #c9a94e;
+  --color-gold-600: #ad8a37;
+
+  /* functional accents */
+  --color-ember-400: #ff9c5c;
+  --color-ember-500: #ff8547;
+  --color-duel-400: #97a1ff;
+  --color-duel-500: #7c87ff;
+  --color-success-500: #6fcf97;
+  --color-danger-500: #e5675a;
+
+  /* subject palette */
+  --color-subj-math: #5b8def;
+  --color-subj-physics: #9b7bff;
+  --color-subj-lang: #58c48a;
+  --color-subj-chem: #f2a65a;
+  --color-subj-history: #e5757a;
+  --color-subj-bio: #4fbfa8;
+
+  /* radius */
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  /* fonts */
+  --font-display: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  --color-background: var(--color-ink-950);
+  --color-foreground: var(--color-text-primary);
+
+  --animate-marquee: marquee 28s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: dark;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink-950);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold-500);
+  color: var(--color-ink-950);
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+/* thin, dark scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-ink-600);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* visible, on-brand focus ring for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
