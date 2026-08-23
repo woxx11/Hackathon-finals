@@ -12,7 +12,7 @@ import { LevelRing } from "@/components/features/level-ring";
 import { SubjectCard } from "@/components/features/subject-card";
 import { CURRENT_USER, SUBJECTS } from "@/lib/mock-data";
 
-const APK_URL = "https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk";
+const APK_URL = "https://hackathon-finals-0rjs.onrender.com/downloads/Aqurin.apk";
 
 const XP_PER_LEVEL = 500;
 
@@ -44,7 +44,7 @@ export default function DashboardPage() {
   const [currentUser, setCurrentUser] = useState(CURRENT_USER);
 
   useEffect(() => {
-    const stored = localStorage.getItem("aqlzor_user");
+    const stored = localStorage.getItem("Aqurin_user");
     if (!stored) return;
     try {
       const profile = JSON.parse(stored) as { name?: string; xp?: number; level?: number; streak?: number; schoolId?: string; classId?: string };

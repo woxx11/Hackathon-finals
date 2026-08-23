@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "AqlZo'r",
-    "slug": "aqlzor",
+    "name": "Aqurin",
+    "slug": "Aqurin",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "bundleIdentifier": "uz.aqlzor.app",
+      "bundleIdentifier": "uz.Aqurin.app",
       "supportsTablet": true
     },
     "android": {
-      "package": "uz.aqlzor.app",
+      "package": "uz.Aqurin.app",
       "versionCode": 1,
       "adaptiveIcon": {
         "backgroundColor": "#1E1B2E",

@@ -51,7 +51,7 @@ export function CtaSection() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-lg text-base text-muted leading-relaxed">
-              AqlZo&apos;r bilan o&apos;rganishni yangi darajaga olib chiqing. Bepul ro&apos;yxatdan o&apos;ting va darhol
+              Aqurin bilan o&apos;rganishni yangi darajaga olib chiqing. Bepul ro&apos;yxatdan o&apos;ting va darhol
               AI repetitor bilan o&apos;rganishni boshlang!
             </p>
 

@@ -18,7 +18,7 @@ const bricolage = Bricolage_Grotesque({
 });
 
 export const metadata: Metadata = {
-  title: "AqlZo'r — AI o'quv hamrohi",
+  title: "Aqurin — AI o'quv hamrohi",
   description: "AI bilan o'rgan, do'stlaring bilan bilim bo'yicha bellash.",
 };
 

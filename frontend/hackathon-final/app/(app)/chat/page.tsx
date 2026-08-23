@@ -12,7 +12,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CHAT_HISTORY, SUBJECTS } from "@/lib/mock-data";
 import { getSocraticReply } from "@/lib/ai-mock";
-import { askAI } from "@/lib/api";
+import { api } from "@/lib/api";
 import type { ChatMessage, Subject } from "@/lib/types";
 
 function ChatPageInner() {
@@ -46,7 +46,8 @@ function ChatPageInner() {
 
     let content: string;
     try {
-      content = await askAI(trimmed, subject);
+      const response = await api.askAI(trimmed, subject);
+      content = response.answer || response;
     } catch {
       content = getSocraticReply(subject);
     }

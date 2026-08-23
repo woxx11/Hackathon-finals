@@ -164,11 +164,11 @@ export function Hero() {
             </div>
             <h3 className="text-xl font-bold text-foreground">📱 Mobile ilovani yuklang</h3>
             <p className="mt-2 text-sm text-muted">
-              AqlZo&apos;r Android ilovasini yuklab oling va istalgan joyda bilim oling!
+              Aqurin Android ilovasini yuklab oling va istalgan joyda bilim oling!
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <a
-                href="https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk"
+                href="https://hackathon-finals-0rjs.onrender.com/downloads/Aqurin.apk"
                 download
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-hover px-6 py-3.5 font-bold text-white shadow-lg shadow-primary/20"
               >

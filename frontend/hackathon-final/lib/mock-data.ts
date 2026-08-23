@@ -79,7 +79,7 @@ export const ACTIVE_DUEL: Duel = {
   id: "d_204",
   subject: "physics",
   status: "active",
-  inviteLink: "aqlzor.uz/duel/d_204",
+  inviteLink: "Aqurin.uz/duel/d_204",
   createdAt: "2026-08-23T09:00:00Z",
   host: { userId: "u_1", name: "Sardor", avatarSeed: "Sardor", score: 0, correctCount: 0, avgSeconds: 0 },
   opponent: { userId: "u_2", name: "Diyor", avatarSeed: "Diyor", score: 0, correctCount: 0, avgSeconds: 0 },

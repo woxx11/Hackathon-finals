@@ -22,7 +22,7 @@ export function Wordmark({ className }: { className?: string }) {
     <div className={cn("flex items-center gap-2.5", className)}>
       <LogoMark />
       <span className="font-display text-lg font-semibold tracking-tight text-text-primary">
-        AqlZo&apos;r
+        Aqurin
       </span>
     </div>
   );
