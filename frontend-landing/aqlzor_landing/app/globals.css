@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* ─── Sunset & Sky Color System for AqlZo'r ─── */
+:root {
+  /* Warm sunset sky palette - refined, modern, student-friendly */
+  --background: #FAF8F5;
+  --foreground: #1E1B2E;
+  
+  --primary: #FF6B4A; /* Vibrant Coral / Sunset Orange */
+  --primary-hover: #F05532;
+  --primary-light: #FFF0ED;
+  
+  --secondary: #8B5CF6; /* Sunset Purple / Violet Sky */
+  --secondary-light: #F3E8FF;
+  
+  --accent: #FFB800; /* Warm Sun Amber */
+  --accent-light: #FFF9E6;
+  
+  --sky-blue: #38BDF8; /* Cloud Sky Blue */
+  --sky-light: #F0F9FF;
+
+  --surface: #FFFFFF;
+  --surface-hover: #F7F5F0;
+  --surface-dark: #161224;
+  
+  --muted: #64748B;
+  --muted-light: #94A3B8;
+  --border: rgba(30, 27, 46, 0.08);
+  --border-strong: rgba(30, 27, 46, 0.16);
+  
+  --shadow-sm: 0 2px 8px rgba(255, 107, 74, 0.06);
+  --shadow-md: 0 10px 30px rgba(30, 27, 46, 0.08);
+  --shadow-lg: 0 20px 40px rgba(139, 92, 246, 0.12);
+  --shadow-glow: 0 0 40px rgba(255, 107, 74, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-secondary-light: var(--secondary-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-sky-blue: var(--sky-blue);
+  --color-sky-light: var(--sky-light);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-dark: var(--surface-dark);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --font-sans: var(--font-manrope);
+}
+
+/* ─── Base reset ─── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Sunset Gradient Grids & Clouds ─── */
+.sunset-grid {
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 184, 0, 0.12) 0%, rgba(255, 107, 74, 0.08) 35%, rgba(139, 92, 246, 0.03) 70%, transparent 100%),
+    linear-gradient(rgba(30, 27, 46, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 27, 46, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+.cloud-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 30px -5px rgba(30, 27, 46, 0.05), 0 0 0 1px rgba(255, 107, 74, 0.05);
+}
+
+.cloud-card-dark {
+  background: #161224;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Gradient text utilities ─── */
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #FF6B4A 0%, #8B5CF6 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFB800 0%, #FF6B4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Glowing accents ─── */
+.glow-coral {
+  box-shadow: 0 10px 30px rgba(255, 107, 74, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.25);
+}
+
+/* ─── Glass navigation ─── */
+.glass-nav {
+  background: rgba(250, 248, 245, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(30, 27, 46, 0.04);
+}
+
+/* ─── Custom selection ─── */
+::selection {
+  background: rgba(255, 107, 74, 0.2);
+  color: #1E1B2E;
+}
