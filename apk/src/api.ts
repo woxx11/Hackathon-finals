@@ -52,6 +52,6 @@ export const api = {
   createDuel: (subject: string, playerId: string) => request<Duel>('/api/duel/create', { method: 'POST', body: JSON.stringify({ subject, playerId }) }),
 };
 
-export const APK_DOWNLOAD_URL = `${API_BASE_URL}/downloads/aqlzor.apk`;
+export const APK_DOWNLOAD_URL = `${API_BASE_URL}/downloads/Aqurin.apk`;
 
 export { API_BASE_URL };

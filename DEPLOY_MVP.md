@@ -1,4 +1,4 @@
-# AqlZo'r MVP deployment runbook
+# Aqurin MVP deployment runbook
 
 ## 1. Render — backend
 
@@ -17,17 +17,17 @@ Add these environment variables in Render:
 ```env
 GEMINI_API_KEY=your_gemini_key_if_available
 FRONTEND_ORIGIN=https://hackathon-finals.vercel.app
-APK_URL=https://your-public-storage.example/aqlzor.apk
+APK_URL=https://your-public-storage.example/Aqurin.apk
 ```
 
 `GEMINI_API_KEY` is optional because the backend has deterministic fallbacks. `APK_URL` is required for a real APK download. Upload the release APK to a public object-storage URL or a GitHub Release asset, then paste that direct file URL into `APK_URL`. After deploy, verify:
 
 ```text
 https://hackathon-finals-0rjs.onrender.com/health
-https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk
+https://hackathon-finals-0rjs.onrender.com/downloads/Aqurin.apk
 ```
 
-The `/downloads/aqlzor.apk` endpoint redirects to `APK_URL`, so all web and mobile buttons use one stable URL.
+The `/downloads/Aqurin.apk` endpoint redirects to `APK_URL`, so all web and mobile buttons use one stable URL.
 
 ## 2. Vercel — main application
 
@@ -43,7 +43,7 @@ The root page `/` is now the login/register screen. A successful login sends the
 
 ## 3. Vercel — landing page
 
-Keep the landing as a separate Vercel project with **Root Directory** set to `frontend-landing/aqlzor_landing`. Use `npm run build`. The landing's `Boshlash` actions now point to the main app root:
+Keep the landing as a separate Vercel project with **Root Directory** set to `frontend-landing/Aqurin_landing`. Use `npm run build`. The landing's `Boshlash` actions now point to the main app root:
 
 ```text
 https://hackathon-finals-41v6.vercel.app/
@@ -52,7 +52,7 @@ https://hackathon-finals-41v6.vercel.app/
 The landing's Android buttons point to:
 
 ```text
-https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk
+https://hackathon-finals-0rjs.onrender.com/downloads/Aqurin.apk
 ```
 
 If the Vercel deployment generates a different domain, replace the main app URL in `components/navbar.tsx`, `components/hero.tsx`, and `components/cta-section.tsx` before the final redeploy.

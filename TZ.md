@@ -1,4 +1,4 @@
-# 🎓 "AqlZo'r" — Maktab uchun AI-yordamchi
+# 🎓 "Aqurin" — Maktab uchun AI-yordamchi
 ### To'liq TZ + Backend struktura + 3 soatlik jang rejasi
 
 ---
@@ -7,7 +7,7 @@
 
 Hakamlar ko'p marta "uy vazifasini AI yechadi" degan g'oyani ko'rgan. Bizniki farqli bo'lishi kerak: **AI — o'qituvchi emas, do'stlaringiz bilan bellashadigan "raqib va hamkor"**.
 
-**Nom taklifi: AqlZo'r** (yoki BilimJang, Repetitor.uz, ZakovatAI — jamoa tanlaydi)
+**Nom taklifi: Aqurin** (yoki BilimJang, Repetitor.uz, ZakovatAI — jamoa tanlaydi)
 
 **Bosh g'oya (hook):** Bu shunchaki savol-javob boti emas — bu **sinfdoshlar bilan bilim bo'yicha "duel" o'ynaydigan, AI esa hakam va murabbiy bo'lgan** ilova. Bola do'stiga "menga qarshi Fizikadan duelga chiq" deb yuboradi — mana shu narsa **o'z-o'zidan tarqaladi** (auditoriya talabiga to'g'ri keladi).
 
@@ -44,7 +44,7 @@ Hakamlar ko'p marta "uy vazifasini AI yechadi" degan g'oyani ko'rgan. Bizniki fa
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │  Landing Page    │────▶│   Asosiy Web App   │◀───▶│  Express Backend │
 │  (Next.js)       │     │   (Next.js)        │     │  (Node.js/TS)     │
-│  domen: aqlzor.uz│     │  domen: app.aqlzor..│    │  Render/Railway   │
+│  domen: Aqurin.uz│     │  domen: app.Aqurin..│    │  Render/Railway   │
 └─────────────────┘     └──────────────────┘     └────────┬────────┘
         │                                                    │
         │ mobil aniqlansa                                    │
@@ -136,10 +136,10 @@ export const store = {
 
 ## 5. LANDING vs ASOSIY SAYT — qanday bog'lanadi
 
-- **Landing (aqlzor.uz)** — faqat marketing: bosh sahifa, "nima uchun biz", ekran skrinshotlari, "Boshlash" tugmasi
-- **"Boshlash" tugmasi** → `app.aqlzor-main.vercel.app`ga (yoki qanday domen bo'lsa) yo'naltiradi (`<a href="https://app-domen.vercel.app">`)
+- **Landing (Aqurin.uz)** — faqat marketing: bosh sahifa, "nima uchun biz", ekran skrinshotlari, "Boshlash" tugmasi
+- **"Boshlash" tugmasi** → `app.Aqurin-main.vercel.app`ga (yoki qanday domen bo'lsa) yo'naltiradi (`<a href="https://app-domen.vercel.app">`)
 - **Mobil qurilma aniqlansa** (`navigator.userAgent` orqali `Android`/`iPhone` tekshirish), Landingda popup chiqadi:
-  > "📱 Ilovamiz bor! Yuklab olasizmi?" → **Ha** bosilsa APK fayl darhol yuklanadi (`<a href="/AqlZor.apk" download>`)
+  > "📱 Ilovamiz bor! Yuklab olasizmi?" → **Ha** bosilsa APK fayl darhol yuklanadi (`<a href="/Aqurin.apk" download>`)
 - APK faylni `public/` papkaga qo'yib, to'g'ridan-to'g'ri havola bilan yuklatish eng tez yo'l (Play Store kerak emas, hakamlar oldida darhol ishlaydi)
 
 ```js
@@ -207,7 +207,7 @@ Faraz: jamoada kamida 3-4 kishi bor (1 backend, 1-2 frontend, 1 mobile/dizayn, 1
 ## 8. TAQDIMOT STRUKTURASI (qisqa, 3-4 daqiqa)
 
 1. **Muammo (20 sek):** "O'quvchilar uy vazifasini qiladi, lekin buni zerikarli deb biladi va do'stlari bilan bellashmaydi"
-2. **Yechim (20 sek):** "AqlZo'r — AI yordamchi + do'stlar bilan bilim duel'i"
+2. **Yechim (20 sek):** "Aqurin — AI yordamchi + do'stlar bilan bilim duel'i"
 3. **Live demo (2 daqiqa):** ikkita hakam/jamoa a'zosini chiqarib, jonli duel o'ynatish — bu eng ta'sirli qism
 4. **Texnologiya (30 sek):** Next.js + Express + React Native, bitta API orqali barchasi bog'langan
 5. **Kelajak (20 sek):** real DB, ota-onalar dashboard, ko'proq fanlar

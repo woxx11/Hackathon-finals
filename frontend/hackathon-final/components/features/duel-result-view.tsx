@@ -130,7 +130,7 @@ export function DuelResultView({ subject, host, opponent, xpAwarded, currentUser
           onClick={() => {
             if (navigator.share) {
               navigator.share({
-                title: "AqlZo'r duel natijasi",
+                title: "Aqurin duel natijasi",
                 text: `${you.name} ${you.score} — ${rival.score} natija bilan duelni ${won ? "yutdi" : "yakunladi"}!`,
               }).catch(() => {});
             }

@@ -22,7 +22,7 @@ const sendError = (res: express.Response, message: string, status = 400, code = 
 };
 
 // --- HEALTH ---
-app.get('/health', (_req, res) => sendSuccess(res, { service: 'aqlzor-api', status: 'ok', version: 'mvp-2' }));
+app.get('/health', (_req, res) => sendSuccess(res, { service: 'Aqurin-api', status: 'ok', version: 'mvp-2' }));
 
 // --- USERS ---
 app.post('/api/users/register', (req, res) => {
@@ -98,24 +98,31 @@ const askGemini = async (prompt: string, mockResponse: string) => {
 
 // --- AI ENDPOINTS ---
 app.post('/api/ai/ask', async (req, res) => {
-  const { question } = req.body;
+  const { question, context } = req.body;
   if (!question) return sendError(res, 'Missing question', 400, 'MISSING_FIELDS');
   const fallback = `[Mock AI Response] This is a deterministic demo response for: ${question}`;
-  const answer = await askGemini(`Answer this concisely: ${question}`, fallback);
+  
+  const ctxString = context ? `Контекст ученика: класс ${context.classId || 'неизвестно'}. ` : '';
+  const prompt = `${ctxString}Ты - ИИ-репетитор Aqurin. Твоя цель - не просто дать ответ, а помочь ученику самому дойти до правильного решения. Отвечай кратко, дружелюбно и направляй размышления. Вопрос: ${question}`;
+  
+  const answer = await askGemini(prompt, fallback);
   sendSuccess(res, { answer });
 });
 
 app.post('/api/ai/explain-fun', async (req, res) => {
-  const { topic } = req.body;
+  const { topic, context } = req.body;
   const fallback = `[Mock Fun AI] Here is a fun explanation about ${topic || 'nothing'}: It's like magic, but with math!`;
-  const explanation = await askGemini(`Explain ${topic || 'something random'} in a fun, engaging way for a student.`, fallback);
+  
+  const ctxString = context ? `Контекст: ученик ${context.classId || 'младших классов'}. ` : '';
+  const prompt = `${ctxString}Объясни тему "${topic || 'случайная тема'}" очень весело, интерактивно, с понятными аналогиями из реальной жизни, чтобы заинтересовать школьника.`;
+  
+  const explanation = await askGemini(prompt, fallback);
   sendSuccess(res, { explanation });
 });
 
 app.post('/api/ai/solve-image', async (req, res) => {
-  // Mocking the image part since it's a bit complex for a hackathon MVP
   const fallback = `[Mock Image AI] I see a math problem in this image. The answer is 42.`;
-  const solution = await askGemini(`Solve the generic math problem hidden in this imaginary image. Be creative.`, fallback);
+  const solution = await askGemini(`Представь, что ученик загрузил фотографию с задачей. Дай пошаговое обобщенное решение типичной математической задачи, указывая, где обычно ошибаются.`, fallback);
   sendSuccess(res, { solution });
 });
 
@@ -233,7 +240,7 @@ Return valid JSON matching this schema: [{ "question": "string", "options": ["st
 });
 
 // --- DOWNLOADS ---
-app.get('/downloads/aqlzor.apk', (_req, res) => {
+app.get('/downloads/Aqurin.apk', (_req, res) => {
   const apkUrl = process.env.APK_URL;
   if (!apkUrl) return sendError(res, 'APK is not configured yet. Set APK_URL in Render.', 503, 'APK_NOT_CONFIGURED');
   return res.redirect(302, apkUrl);

@@ -54,7 +54,7 @@ function DuelRoomInner() {
   const opponentCorrectRef = useRef(false);
 
   const question = ACTIVE_DUEL.questions[questionIndex];
-  const inviteLink = `aqlzor.uz/duel/${params.id}`;
+  const inviteLink = `Aqurin.uz/duel/${params.id}`;
 
   useEffect(() => {
     if (stage !== "lobby") return;

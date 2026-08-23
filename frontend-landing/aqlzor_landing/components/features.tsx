@@ -89,7 +89,7 @@ export function Features() {
             <span>SUPER IMKONIYATLAR</span>
           </div>
           <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-foreground">
-            AqlZo&apos;r — bu o&apos;quvchilar uchun{" "}
+            Aqurin — bu o&apos;quvchilar uchun{" "}
             <span className="text-gradient-sunset">yangi davr</span>
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted font-medium">

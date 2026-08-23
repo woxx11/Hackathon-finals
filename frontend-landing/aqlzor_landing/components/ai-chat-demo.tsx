@@ -77,7 +77,7 @@ export function AiChatDemo() {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-extrabold text-foreground">AqlZo&apos;r AI Murabbiy</span>
+                    <span className="text-base font-extrabold text-foreground">Aqurin AI Murabbiy</span>
                     <span className="rounded-md bg-primary-light px-2 py-0.5 text-[10px] font-bold text-primary">
                       Sokrat 2.0
                     </span>
@@ -155,7 +155,7 @@ export function AiChatDemo() {
             </h2>
             <p className="mt-4 text-base text-muted font-medium leading-relaxed max-w-lg">
               Sun&apos;iy intellekt uy vazifasini shunchaki ko&apos;chirib berishi noto&apos;g&apos;ri.
-              AqlZo&apos;r AI sizga yo&apos;naltiruvchi savollar berib, bilimni o&apos;zingiz kashf etishingizga ko&apos;maklashadi.
+              Aqurin AI sizga yo&apos;naltiruvchi savollar berib, bilimni o&apos;zingiz kashf etishingizga ko&apos;maklashadi.
             </p>
 
             <div className="mt-6 space-y-3.5">
