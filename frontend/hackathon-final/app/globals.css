@@ -2,43 +2,45 @@
 @import "tw-animate-css";
 
 @theme inline {
-  /* base */
-  --color-ink-950: #08080a;
-  --color-ink-900: #0d0d11;
-  --color-ink-850: #131318;
-  --color-ink-800: #191920;
-  --color-ink-700: #24242c;
-  --color-ink-600: #33333d;
-  --color-line: rgba(246, 244, 235, 0.08);
-  --color-line-strong: rgba(246, 244, 235, 0.16);
+  /* base — "Sunset & Sky", shared with the landing */
+  --color-ink-950: #faf8f5;
+  --color-ink-900: #ffffff;
+  --color-ink-850: #f7f5f0;
+  --color-ink-800: #f1eee7;
+  --color-ink-700: rgba(30, 27, 46, 0.16);
+  --color-ink-600: #cbd5e1;
+  --color-line: rgba(30, 27, 46, 0.08);
+  --color-line-strong: rgba(30, 27, 46, 0.16);
 
   /* text */
-  --color-text-primary: #f2f0e8;
-  --color-text-secondary: #a4a29a;
-  --color-text-muted: #67655e;
+  --color-text-primary: #1e1b2e;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
 
-  /* cream / gold accent */
-  --color-cream-100: #f8f5ea;
-  --color-cream-300: #e7e1c9;
-  --color-gold-400: #d8c687;
-  --color-gold-500: #c9a94e;
-  --color-gold-600: #ad8a37;
+  /* cream / warm neutrals */
+  --color-cream-100: #fff9e6;
+  --color-cream-300: #fff0ed;
+
+  /* primary accent — sunset coral */
+  --color-gold-400: #f05532;
+  --color-gold-500: #ff6b4a;
+  --color-gold-600: #e14a2a;
 
   /* functional accents */
-  --color-ember-400: #ff9c5c;
-  --color-ember-500: #ff8547;
-  --color-duel-400: #97a1ff;
-  --color-duel-500: #7c87ff;
-  --color-success-500: #6fcf97;
-  --color-danger-500: #e5675a;
+  --color-ember-400: #c98a00;
+  --color-ember-500: #ffb800;
+  --color-duel-400: #7c3aed;
+  --color-duel-500: #8b5cf6;
+  --color-success-500: #22c55e;
+  --color-danger-500: #ef4444;
 
   /* subject palette */
-  --color-subj-math: #5b8def;
-  --color-subj-physics: #9b7bff;
-  --color-subj-lang: #58c48a;
-  --color-subj-chem: #f2a65a;
-  --color-subj-history: #e5757a;
-  --color-subj-bio: #4fbfa8;
+  --color-subj-math: #38bdf8;
+  --color-subj-physics: #8b5cf6;
+  --color-subj-lang: #22c55e;
+  --color-subj-chem: #ffb800;
+  --color-subj-history: #ef4444;
+  --color-subj-bio: #14b8a6;
 
   /* radius */
   --radius-4xl: 2rem;
@@ -46,7 +48,7 @@
 
   /* fonts */
   --font-display: var(--font-bricolage), "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
 
   --color-background: var(--color-ink-950);
@@ -56,7 +58,7 @@
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 @keyframes marquee {
@@ -105,6 +107,21 @@ body {
   outline: 2px solid var(--color-gold-400);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #ff6b4a 0%, #8b5cf6 50%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sunset-grid {
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255, 184, 0, 0.12) 0%, rgba(255, 107, 74, 0.08) 35%, rgba(139, 92, 246, 0.03) 70%, transparent 100%),
+    linear-gradient(rgba(30, 27, 46, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 27, 46, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
 .noise-overlay {
