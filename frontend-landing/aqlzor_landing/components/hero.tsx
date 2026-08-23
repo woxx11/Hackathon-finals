@@ -99,7 +99,7 @@ export function Hero() {
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4">
                 <motion.a
-                  href="https://app-aqlzor.vercel.app"
+                  href="https://hackathon-finals-41v6.vercel.app/"
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.5 }}
@@ -168,7 +168,7 @@ export function Hero() {
             </p>
             <div className="mt-6 flex flex-col gap-3">
               <a
-                href="/AqlZor.apk"
+                href="https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk"
                 download
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-primary-hover px-6 py-3.5 font-bold text-white shadow-lg shadow-primary/20"
               >

@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Camera, MessagesSquare, Swords, ChevronRight, Sparkles } from "lucide-react";
+import { Camera, MessagesSquare, Swords, ChevronRight, Sparkles, Download } from "lucide-react";
 import { Topbar } from "@/components/layout/topbar";
 import { buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,6 +11,8 @@ import { cn } from "@/lib/utils";
 import { LevelRing } from "@/components/features/level-ring";
 import { SubjectCard } from "@/components/features/subject-card";
 import { CURRENT_USER, SUBJECTS } from "@/lib/mock-data";
+
+const APK_URL = "https://hackathon-finals-0rjs.onrender.com/downloads/aqlzor.apk";
 
 const XP_PER_LEVEL = 500;
 
@@ -38,9 +41,20 @@ const QUICK_ACTIONS = [
 ];
 
 export default function DashboardPage() {
-  const xpIntoLevel = CURRENT_USER.xp % XP_PER_LEVEL;
+  const [currentUser, setCurrentUser] = useState(CURRENT_USER);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("aqlzor_user");
+    if (!stored) return;
+    try {
+      const profile = JSON.parse(stored) as { name?: string; xp?: number; level?: number; streak?: number; schoolId?: string; classId?: string };
+      setCurrentUser((previous) => ({ ...previous, name: profile.name || previous.name, xp: profile.xp ?? previous.xp, level: profile.level ?? previous.level, streakDays: profile.streak ?? previous.streakDays, school: profile.schoolId && profile.classId ? `${profile.schoolId}, ${profile.classId}` : previous.school }));
+    } catch { /* ignore invalid local session */ }
+  }, []);
+
+  const xpIntoLevel = currentUser.xp % XP_PER_LEVEL;
   const progress = (xpIntoLevel / XP_PER_LEVEL) * 100;
-  const firstName = CURRENT_USER.name.split(" ")[0];
+  const firstName = currentUser.name.split(" ")[0];
 
   return (
     <>
@@ -56,15 +70,15 @@ export default function DashboardPage() {
             <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-gold-500/10 blur-3xl" />
             <div className="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-5">
-                <LevelRing level={CURRENT_USER.level} progress={progress} />
+                <LevelRing level={currentUser.level} progress={progress} />
                 <div>
                   <p className="text-sm text-text-secondary">
                     {xpIntoLevel} / {XP_PER_LEVEL} XP &middot; keyingi darajagacha
                   </p>
                   <h2 className="mt-1 font-display text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl">
-                    {CURRENT_USER.streakDays} kunlik streak &#128293;
+                    {currentUser.streakDays} kunlik streak &#128293;
                   </h2>
-                  <p className="mt-1 text-sm text-text-secondary">{CURRENT_USER.school}</p>
+                  <p className="mt-1 text-sm text-text-secondary">{currentUser.school}</p>
                 </div>
               </div>
               <Link
@@ -77,6 +91,11 @@ export default function DashboardPage() {
             </div>
           </Card>
         </motion.div>
+
+        <div className="mt-5 flex flex-wrap items-center gap-3">
+          <a href={APK_URL} className="inline-flex items-center gap-2 rounded-xl border border-line bg-white px-4 py-2.5 text-sm font-bold text-text-primary transition hover:border-gold-500 hover:text-gold-600"><Download className="h-4 w-4" /> Android ilovasini yuklash</a>
+          <span className="text-xs text-text-muted">Barcha natijalar profilingiz bilan sinxronlanadi</span>
+        </div>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {QUICK_ACTIONS.map((action, i) => (
